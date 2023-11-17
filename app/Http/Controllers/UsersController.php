@@ -25,6 +25,8 @@ class UsersController extends AbstractCrudController
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role_id' => ['required', 'integer'],
             'password' => ['required', Rules\Password::defaults()],
+        ], [
+            'password' => Hash::make($request->password)
         ]);
     }
 
