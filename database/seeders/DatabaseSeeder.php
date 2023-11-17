@@ -22,8 +22,12 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->insert([
             'name' => 'admin',
             'user_id' => 1,
-            'permissions' => json_encode(['users.view', 'users.create', 'users.delete'])
-
+            'permissions' => json_encode([
+                'users.view', 'users.edit', 'users.create', 'users.delete',
+                'roles.view', 'roles.edit', 'roles.create', 'roles.delete',
+                'categories.view', 'categories.edit', 'categories.create', 'categories.delete',
+                'posts.view', 'posts.edit', 'posts.create', 'posts.delete'
+            ])
         ]);
     }
 }
