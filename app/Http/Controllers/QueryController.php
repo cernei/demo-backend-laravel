@@ -8,14 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class QueryController extends Controller
 {
-    public function restoreDatabase(): JsonResponse
-    {
-        $filepath = base_path() . '/database/dumps/companies.sql';
-        DB::unprepared(file_get_contents($filepath));
-
-        return response()->json(['status' => 'success']);
-    }
-
     /**
      * Handle an incoming authentication request.
      */
@@ -37,7 +29,7 @@ class QueryController extends Controller
                     'users' => ['posts.user_id', 'users.id']
                 ],
                 'table' => 'posts',
-                'where' => ['categories.name'],
+                'where' => ['content'],
                 'select' => ['id', 'content', 'categories.name as category', 'users.name as user', 'created_at'],
             ],
             'categories' => [

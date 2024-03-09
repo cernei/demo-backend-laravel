@@ -25,6 +25,8 @@ class UsersController extends AbstractCrudController
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role_id' => ['required', 'integer'],
             'password' => ['required', Rules\Password::defaults()],
+        ], [
+            'password' => Hash::make($request->password)
         ]);
     }
 
@@ -33,9 +35,9 @@ class UsersController extends AbstractCrudController
         return $this->_update($request, $id, [
             'name' => ['required', 'string', 'max:255'],
             'role_id' => ['required', 'integer'],
-            'password' => [],
+            'password' => [Rules\Password::defaults()],
         ], function ($item) {
-            if ($item['password']) {
+            if (isset($item['password'])) {
                 $item['password'] = Hash::make($item['password']);
             }
             return $item;

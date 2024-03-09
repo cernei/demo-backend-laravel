@@ -35,7 +35,8 @@ class RolesController extends AbstractCrudController
         $user = Auth::user();
 
         return $this->_store($request, $this->validationRules, [
-           'user_id' => $user['id']
+           'user_id' => $user['id'],
+           'permissions' => json_encode($request->permissions),
         ]);
     }
 
