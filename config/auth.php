@@ -112,4 +112,26 @@ return [
 
     'password_timeout' => 10800,
 
+    'permissions' => [
+        'categories.view' => 'View categories',
+        'categories.create' => 'Create categories',
+        'categories.edit' => 'Edit categories',
+        'categories.delete' => 'Delete categories',
+
+        'posts.view' => 'View posts',
+        'posts.create' => 'Create posts',
+        'posts.edit' => 'Edit posts',
+        'posts.delete' => 'Delete posts',
+
+        'users.view' => 'View users',
+        'users.create' => 'Create users',
+        'users.edit' => 'Edit users',
+        'users.delete' => 'Delete users',
+
+        'roles.view' => 'View roles',
+        'roles.create' => 'Create roles',
+        'roles.edit' => 'Edit roles',
+        'roles.delete' => 'Delete roles',
+    ],
+
 ];

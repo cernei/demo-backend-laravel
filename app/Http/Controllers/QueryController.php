@@ -88,7 +88,7 @@ class QueryController extends Controller
             if ($params['filters']) {
                 foreach ($params['filters'] as $key => $filterValue) {
                     if (in_array($key, $schema['where'])) {
-                        $qb = $qb->where($key, 'ilike', $filterValue['value'] . '%');
+                        $qb = $qb->where($key, 'like', $filterValue['value'] . '%');
                     }
                 }
             }

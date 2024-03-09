@@ -3,35 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 
 class DictionaryController extends Controller
 {
-    public array $permissions = [
-        'categories.view' => 'View categories',
-        'categories.create' => 'Create categories',
-        'categories.edit' => 'Edit categories',
-        'categories.delete' => 'Delete categories',
+    public array $permissions = [];
 
-        'posts.view' => 'View posts',
-        'posts.create' => 'Create posts',
-        'posts.edit' => 'Edit posts',
-        'posts.delete' => 'Delete posts',
+    public function __construct() {
+        $this->permissions = Config::get('auth.permissions');
+    }
 
-        'users.view' => 'View users',
-        'users.create' => 'Create users',
-        'users.edit' => 'Edit users',
-        'users.delete' => 'Delete users',
-
-        'roles.view' => 'View roles',
-        'roles.create' => 'Create roles',
-        'roles.edit' => 'Edit roles',
-        'roles.delete' => 'Delete roles',
-
-    ];
     public function getDictionary(string $dictionaryName): JsonResponse
     {
-
         $schemas = [
             'categories' => ['table' => 'categories', 'keys' => ['id', 'name']],
             'roles' => ['table' => 'roles', 'keys' => ['id', 'name']],
