@@ -16,6 +16,12 @@ class QueryController extends Controller
         $params = $request->all();
 
         $schemas = [
+            'access_log' => [
+                'paginate' => 10,
+                'table' => 'access_log',
+                'where' => ['id', 'ip'],
+                'select' => ['id', 'url', 'ip', 'referer', 'user_agent', 'created_at'],
+            ],
             'users' => [
                 'paginate' => 10,
                 'table' => 'users',

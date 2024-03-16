@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('/access_log', [\App\Http\Controllers\AccessLogController::class, 'trackView']);
     Route::get('/user', [\App\Http\Controllers\AuthController::class, 'getUser']);
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'destroy']);
     Route::post('/query', [\App\Http\Controllers\QueryController::class, 'run']);
