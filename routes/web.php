@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    print_r(config('logging'));
+//    print_r(config('logging'));
 
     return ['Laravel' => app()->version()];
 });
