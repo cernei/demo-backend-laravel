@@ -19,6 +19,19 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
+        DB::statement("
+            ALTER TABLE posts
+            ADD COLUMN content_search tsvector
+            GENERATED ALWAYS AS (
+                to_tsvector('english', coalesce(content, ''))
+            ) STORED
+        ");
+
+        DB::statement("
+            CREATE INDEX posts_content_search_idx
+            ON posts
+            USING GIN (content_search)
+        ");
     }
 
     /**
@@ -27,5 +40,13 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('posts');
+        DB::statement("
+            DROP INDEX IF EXISTS posts_content_search_idx
+        ");
+
+        DB::statement("
+            ALTER TABLE posts
+            DROP COLUMN IF EXISTS content_search
+        ");
     }
 };

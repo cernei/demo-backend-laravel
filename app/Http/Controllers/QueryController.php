@@ -35,7 +35,8 @@ class QueryController extends Controller
                     'users' => ['posts.user_id', 'users.id']
                 ],
                 'table' => 'posts',
-                'where' => ['content'],
+                'where' => [],
+                'whereFullText' => ['content'],
                 'select' => ['id', 'content', 'categories.name as category', 'users.name as user', 'created_at'],
             ],
             'categories' => [
@@ -84,9 +85,17 @@ class QueryController extends Controller
             }
 
             if ($params['filters']) {
-                foreach ($params['filters'] as $key => $filterValue) {
-                    if (in_array($key, $schema['where'])) {
-                        $qb = $qb->where($key, 'like', $filterValue['value'] . '%');
+                foreach ($params['filters'] as $key => $filter) {
+                    if ($filter['value']) {
+                        if (in_array($key, $schema['where'])) {
+                            $qb = $qb->where($key, 'like', $filter['value'] . '%');
+                        }
+                        if (isset($schema['whereFullText']) && in_array($key, $schema['whereFullText'])) {
+                            $qb = $qb->whereRaw(
+                                $key . "_search @@ plainto_tsquery('english', ?)",
+                                [$filter['value']]
+                            );
+                        }
                     }
                 }
             }
