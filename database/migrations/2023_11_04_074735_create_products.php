@@ -11,26 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
+            $table->string('title');
+            $table->text('description');
             $table->foreignId('category_id');
-            $table->foreignId('user_id');
+            $table->foreignId('admin_id');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
         DB::statement("
-            ALTER TABLE posts
-            ADD COLUMN content_search tsvector
+            ALTER TABLE products
+            ADD COLUMN description_search tsvector
             GENERATED ALWAYS AS (
-                to_tsvector('english', coalesce(content, ''))
+                to_tsvector('english', coalesce(description, ''))
             ) STORED
         ");
 
         DB::statement("
-            CREATE INDEX posts_content_search_idx
-            ON posts
-            USING GIN (content_search)
+            CREATE INDEX products_description_search_idx
+            ON products
+            USING GIN (description_search)
         ");
     }
 
@@ -39,14 +40,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
         DB::statement("
-            DROP INDEX IF EXISTS posts_content_search_idx
+            DROP INDEX IF EXISTS products_description_search_idx
         ");
 
         DB::statement("
-            ALTER TABLE posts
-            DROP COLUMN IF EXISTS content_search
+            ALTER TABLE products
+            DROP COLUMN IF EXISTS description_search
         ");
+        Schema::dropIfExists('products');
     }
 };

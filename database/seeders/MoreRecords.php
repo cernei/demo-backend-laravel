@@ -16,15 +16,14 @@ class MoreRecords extends Seeder
         $faker = Factory::create();
         $pass = bcrypt('12345678');
 
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $batch = [];
-            for ($k = 0; $k < 100; $k++) {
+            for ($k = 0; $k < 10; $k++) {
                 $batch[] = [
                     'name' =>  $faker->name(),
                     'address' =>  $faker->address(),
                     'phone' =>  $faker->phoneNumber(),
                     'email' => $faker->unique()->email(),
-                    'role_id' => 1,
                     'password' => $pass,
                 ];
             }
@@ -35,12 +34,13 @@ class MoreRecords extends Seeder
             $batch = [];
             for ($k = 0; $k < rand(1, 10); $k++) {
                 $batch[] = [
-                    'content' => $faker->realText(),
-                    'user_id' => rand(1, 10000),
+                    'title' => $faker->sentence(),
+                    'description' => $faker->realText(),
+                    'admin_id' => 1,
                     'category_id' => rand(1, 100),
                 ];
             }
-            DB::table('posts')->insert($batch);
+            DB::table('products')->insert($batch);
         }
     }
 }

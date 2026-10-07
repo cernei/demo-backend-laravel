@@ -6,27 +6,27 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PostsController extends AbstractCrudController
+class ProductsController extends AbstractCrudController
 {
-    public string $table = 'posts';
+    public string $table = "products";
+
     public array $validationRules = [
-        'content' => 'string',
-        'category_id' => 'integer',
+        "title" => "required|string|max:255",
+        "description" => "required|string",
+        "category_id" => "required|integer|exists:categories,id",
     ];
 
     public function edit(int $id): JsonResponse
     {
         return $this->_edit($id, [
-            'select' => ['id', 'content', 'category_id']
+            "select" => ["id", "title", "description", "category_id", "admin_id"]
         ]);
     }
 
     public function store(Request $request): JsonResponse
     {
-        $user = Auth::user();
-
-        return $this->_store($request, $this->validationRules,[
-            'user_id' => $user['id']
+        return $this->_store($request, $this->validationRules, [
+            "admin_id" => Auth::guard("admin")->id(),
         ]);
     }
 

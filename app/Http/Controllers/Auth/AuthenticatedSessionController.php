@@ -23,6 +23,18 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * Handle an incoming administrator authentication request.
+     */
+    public function storeAdmin(LoginRequest $request): Response
+    {
+        $request->authenticate('admin');
+
+        $request->session()->regenerate();
+
+        return response()->noContent();
+    }
+
+    /**
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): Response
@@ -30,7 +42,19 @@ class AuthenticatedSessionController extends Controller
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
+        return response()->noContent();
+    }
+
+    /**
+     * Destroy an authenticated administrator session.
+     */
+    public function destroyAdmin(Request $request): Response
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return response()->noContent();

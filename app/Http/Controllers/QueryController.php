@@ -28,16 +28,22 @@ class QueryController extends Controller
                 'where' => ['id'],
                 'select' => ['id', 'name', 'email', 'created_at'],
             ],
-            'posts' => [
+            'admins' => [
+                'paginate' => 10,
+                'table' => 'admins',
+                'where' => ['id'],
+                'select' => ['id', 'name', 'email', 'created_at'],
+            ],
+            'products' => [
                 'paginate' => 10, // limit
                 'join' => [
-                    'categories' => ['posts.category_id', 'categories.id'],
-                    'users' => ['posts.user_id', 'users.id']
+                    'categories' => ['products.category_id', 'categories.id'],
+                    'admins' => ['products.admin_id', 'admins.id']
                 ],
-                'table' => 'posts',
+                'table' => 'products',
                 'where' => [],
-                'whereFullText' => ['content'],
-                'select' => ['id', 'content', 'categories.name as category', 'users.name as user', 'created_at'],
+                'whereFullText' => ['description'],
+                'select' => ['id', 'title', 'description', 'categories.name as category', 'admins.name as user', 'created_at'],
             ],
             'categories' => [
                 'paginate' => 10, // limit
@@ -50,9 +56,9 @@ class QueryController extends Controller
                 'table' => 'roles',
                 'where' => [],
                 'join' => [
-                    'users' => ['roles.user_id', 'users.id']
+                    'admins' => ['roles.user_id', 'admins.id']
                 ],
-                'select' => ['id', 'name', 'permissions', 'users.name as user', 'created_at'],
+                'select' => ['id', 'name', 'permissions', 'admins.name as user', 'created_at'],
             ]
         ];
         $result = [];

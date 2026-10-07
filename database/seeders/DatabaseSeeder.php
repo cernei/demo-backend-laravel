@@ -13,20 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'role_id' => 1,
-            'phone' => '+1 493 1234567',
-            'password' => bcrypt('12345678'),
-        ]);
-        DB::table('users')->insert([
-            'name' => 'Guest',
-            'email' => 'guest@gmail.com',
-            'role_id' => 2,
-            'phone' => '+1 493 1234567',
-            'password' => bcrypt('12345678'),
-        ]);
         DB::table('roles')->insert([
             'name' => 'admin',
             'user_id' => 1,
@@ -35,10 +21,24 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->insert([
             'name' => 'guest',
             'user_id' => 1,
-            'permissions' => json_encode(['posts.view', 'categories.view'])
+            'permissions' => json_encode(['products.view', 'categories.view'])
         ]);
 
-        $postCategories = [
+        DB::table('admins')->insert([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'role_id' => 1,
+            'password' => bcrypt('12345678'),
+        ]);
+        DB::table('admins')->insert([
+            'name' => 'Guest',
+            'email' => 'guest@gmail.com',
+            'role_id' => 2,
+            'password' => bcrypt('12345678'),
+        ]);
+
+
+        $categories = [
             "Technology Trends",
             "Travel Adventures",
             "Health and Wellness",
@@ -140,10 +140,10 @@ class DatabaseSeeder extends Seeder
             "Mystery Novels",
             "Life Lessons from Nature"
         ];
-        $postCategoriesBatch = [];
-        foreach ($postCategories as $value) {
-            $postCategoriesBatch[] = ['name' => $value];
+        $categoriesBatch = [];
+        foreach ($categories as $value) {
+            $categoriesBatch[] = ['name' => $value];
         }
-        DB::table('categories')->insert($postCategoriesBatch);
+        DB::table('categories')->insert($categoriesBatch);
     }
 }

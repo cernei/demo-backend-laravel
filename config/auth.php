@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -63,6 +67,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [
@@ -118,15 +127,20 @@ return [
         'categories.edit' => 'Edit categories',
         'categories.delete' => 'Delete categories',
 
-        'posts.view' => 'View posts',
-        'posts.create' => 'Create posts',
-        'posts.edit' => 'Edit posts',
-        'posts.delete' => 'Delete posts',
+        'products.view' => 'View products',
+        'products.create' => 'Create products',
+        'products.edit' => 'Edit products',
+        'products.delete' => 'Delete products',
 
         'users.view' => 'View users',
         'users.create' => 'Create users',
         'users.edit' => 'Edit users',
         'users.delete' => 'Delete users',
+
+        'admins.view' => 'View admins',
+        'admins.create' => 'Create admins',
+        'admins.edit' => 'Edit admins',
+        'admins.delete' => 'Delete admins',
 
         'roles.view' => 'View roles',
         'roles.create' => 'Create roles',
