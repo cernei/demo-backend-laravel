@@ -30,7 +30,7 @@ class MoreRecords extends Seeder
             DB::table('users')->insert($batch);
 
         }
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $batch = [];
             for ($k = 0; $k < rand(1, 10); $k++) {
                 $batch[] = [
@@ -41,6 +41,25 @@ class MoreRecords extends Seeder
                 ];
             }
             DB::table('products')->insert($batch);
+
+            $productIds = DB::table('products')
+                ->orderByDesc('id')
+                ->limit(count($batch))
+                ->pluck('id');
+
+            $productAttributes = [];
+
+            foreach ($productIds as $productId) {
+                for ($attributeId = 1; $attributeId <= 4; $attributeId++) {
+                    $productAttributes[] = [
+                        'product_id' => $productId,
+                        'attribute_id' => $attributeId,
+                        'value' => rand(1, 3),
+                    ];
+                }
+            }
+
+            DB::table('product_attributes')->insert($productAttributes);
         }
     }
 }

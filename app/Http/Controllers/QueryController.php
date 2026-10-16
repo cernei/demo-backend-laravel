@@ -51,6 +51,12 @@ class QueryController extends Controller
                 'where' => ['name'],
                 'select' => ['id', 'name', 'created_at'],
             ],
+            'attributes' => [
+                'paginate' => 10, // limit
+                'table' => 'attributes',
+                'where' => ['name'],
+                'select' => ['id', 'name', 'created_at'],
+            ],
             'roles' => [
                 'paginate' => 10, // limit
                 'table' => 'roles',

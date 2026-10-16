@@ -37,6 +37,13 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
+        DB::table('attributes')->insert([
+            ['name' => 'Length'],
+            ['name' => 'Width'],
+            ['name' => 'Height'],
+            ['name' => 'Weight'],
+            ['name' => 'Material'],
+        ]);
 
         $categories = [
             "Technology Trends",

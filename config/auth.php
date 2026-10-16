@@ -146,6 +146,11 @@ return [
         'roles.create' => 'Create roles',
         'roles.edit' => 'Edit roles',
         'roles.delete' => 'Delete roles',
+
+        'attributes.view' => 'View attributes',
+        'attributes.create' => 'Create attributes',
+        'attributes.edit' => 'Edit attributes',
+        'attributes.delete' => 'Delete attributes',
     ],
 
 ];
