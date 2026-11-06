@@ -11,23 +11,22 @@ class ProductsController extends AbstractCrudController
     public string $table = "products";
 
     public array $validationRules = [
-        "title" => "required|string|max:255",
+        "name" => "required|string|max:255",
         "description" => "required|string",
+        "price" => "required|numeric",
         "category_id" => "required|integer|exists:categories,id",
     ];
 
     public function edit(int $id): JsonResponse
     {
         return $this->_edit($id, [
-            "select" => ["id", "title", "description", "category_id", "admin_id"]
+            "select" => ["id", "name", "description", "price", "category_id"]
         ]);
     }
 
     public function store(Request $request): JsonResponse
     {
-        return $this->_store($request, $this->validationRules, [
-            "admin_id" => Auth::guard("admin")->id(),
-        ]);
+        return $this->_store($request, $this->validationRules);
     }
 
     public function update(Request $request, int $id): JsonResponse

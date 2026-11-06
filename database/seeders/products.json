@@ -1,0 +1,502 @@
+[
+  {
+    "name": "Red Apples",
+    "description": "Crisp, sweet red apples suitable for snacking, salads, and baking.",
+    "category": "Produce"
+  },
+  {
+    "name": "Bananas",
+    "description": "Ripe yellow bananas, ideal for breakfast, smoothies, and snacks.",
+    "category": "Produce"
+  },
+  {
+    "name": "Oranges",
+    "description": "Juicy oranges with a bright citrus flavor, perfect for eating or juicing.",
+    "category": "Produce"
+  },
+  {
+    "name": "Strawberries",
+    "description": "Fresh, sweet strawberries for desserts, cereal, and smoothies.",
+    "category": "Produce"
+  },
+  {
+    "name": "Blueberries",
+    "description": "Small, flavorful blueberries suitable for snacking, baking, and breakfast bowls.",
+    "category": "Produce"
+  },
+  {
+    "name": "Green Grapes",
+    "description": "Seedless green grapes with a refreshing, sweet taste.",
+    "category": "Produce"
+  },
+  {
+    "name": "Avocados",
+    "description": "Creamy avocados for toast, salads, dips, and sandwiches.",
+    "category": "Produce"
+  },
+  {
+    "name": "Roma Tomatoes",
+    "description": "Firm tomatoes suited to sauces, salads, sandwiches, and cooking.",
+    "category": "Produce"
+  },
+  {
+    "name": "Cucumbers",
+    "description": "Fresh cucumbers with a cool crunch for salads and snacks.",
+    "category": "Produce"
+  },
+  {
+    "name": "Carrots",
+    "description": "Crunchy carrots for raw snacks, soups, roasting, and side dishes.",
+    "category": "Produce"
+  },
+  {
+    "name": "Broccoli",
+    "description": "Fresh broccoli florets and stems for steaming, roasting, or stir-frying.",
+    "category": "Produce"
+  },
+  {
+    "name": "Baby Spinach",
+    "description": "Tender spinach leaves for salads, omelets, smoothies, and cooked dishes.",
+    "category": "Produce"
+  },
+  {
+    "name": "Yellow Onions",
+    "description": "Versatile onions that add savory flavor to soups, sauces, and everyday meals.",
+    "category": "Produce"
+  },
+  {
+    "name": "Garlic Bulb",
+    "description": "Aromatic garlic cloves for seasoning sauces, vegetables, meats, and marinades.",
+    "category": "Produce"
+  },
+  {
+    "name": "Russet Potatoes",
+    "description": "Starchy potatoes suitable for baking, mashing, roasting, and fries.",
+    "category": "Produce"
+  },
+  {
+    "name": "Whole Milk",
+    "description": "Dairy milk with a rich texture for drinking, cereal, and cooking.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Low-Fat Milk",
+    "description": "Reduced-fat dairy milk for everyday drinking and recipes.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Oat Milk",
+    "description": "Plant-based oat beverage for coffee, cereal, smoothies, and cooking.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Plain Greek Yogurt",
+    "description": "Thick, tangy yogurt for breakfast, dips, dressings, and sauces.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Vanilla Yogurt",
+    "description": "Creamy vanilla-flavored yogurt for snacks and breakfast.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Cheddar Cheese",
+    "description": "Firm cheddar cheese for sandwiches, burgers, snacks, and cooking.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Mozzarella Cheese",
+    "description": "Mild mozzarella cheese for pizza, pasta, salads, and baked dishes.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Salted Butter",
+    "description": "Butter for spreading, baking, sautéing, and adding richness to recipes.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Large Eggs",
+    "description": "Versatile shell eggs for breakfast, baking, and everyday cooking.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Heavy Cream",
+    "description": "Rich dairy cream for sauces, soups, desserts, and whipped toppings.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Sour Cream",
+    "description": "Tangy cultured cream for baked potatoes, dips, tacos, and dressings.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Cottage Cheese",
+    "description": "Soft, mild cheese curds for snacks, salads, and breakfast.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Parmesan Cheese",
+    "description": "Hard, savory cheese for grating over pasta, salads, and soups.",
+    "category": "Dairy & Eggs"
+  },
+  {
+    "name": "Chicken Breast",
+    "description": "Boneless chicken breast for grilling, roasting, baking, and stir-fries.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Ground Beef",
+    "description": "Ground beef for burgers, meatballs, tacos, and pasta sauces.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Pork Chops",
+    "description": "Pork chops suitable for pan-searing, grilling, or oven cooking.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Turkey Slices",
+    "description": "Sliced turkey for sandwiches, wraps, and quick lunches.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Salmon Fillet",
+    "description": "Salmon fillet for baking, grilling, or pan-searing.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Canned Tuna",
+    "description": "Shelf-stable tuna for sandwiches, salads, and pasta dishes.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Frozen Shrimp",
+    "description": "Convenient frozen shrimp for stir-fries, pasta, and seafood meals.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Chicken Thighs",
+    "description": "Flavorful chicken thighs for roasting, braising, and grilling.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Beef Sausages",
+    "description": "Seasoned beef sausages for grilling, frying, or serving with sides.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Bacon",
+    "description": "Smoky bacon strips for breakfast, sandwiches, and savory recipes.",
+    "category": "Meat & Seafood"
+  },
+  {
+    "name": "Whole Wheat Bread",
+    "description": "Sliced whole wheat bread for toast, sandwiches, and everyday meals.",
+    "category": "Bakery"
+  },
+  {
+    "name": "White Sandwich Bread",
+    "description": "Soft sliced white bread for sandwiches, toast, and lunchboxes.",
+    "category": "Bakery"
+  },
+  {
+    "name": "French Baguette",
+    "description": "Crusty baguette with a soft interior, ideal for sandwiches and serving with meals.",
+    "category": "Bakery"
+  },
+  {
+    "name": "Plain Bagels",
+    "description": "Chewy bagels for breakfast sandwiches or serving with spreads.",
+    "category": "Bakery"
+  },
+  {
+    "name": "Croissants",
+    "description": "Flaky, buttery pastries for breakfast or a light snack.",
+    "category": "Bakery"
+  },
+  {
+    "name": "Blueberry Muffins",
+    "description": "Soft muffins with blueberries for breakfast or an afternoon treat.",
+    "category": "Bakery"
+  },
+  {
+    "name": "Flour Tortillas",
+    "description": "Soft tortillas for wraps, quesadillas, tacos, and burritos.",
+    "category": "Bakery"
+  },
+  {
+    "name": "Plain Donuts",
+    "description": "Classic sweet donuts for breakfast or a bakery-style treat.",
+    "category": "Bakery"
+  },
+  {
+    "name": "White Rice",
+    "description": "Everyday rice that cooks into fluffy grains for a wide range of meals.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Brown Rice",
+    "description": "Whole-grain rice with a nutty flavor for bowls, sides, and meal prep.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Spaghetti Pasta",
+    "description": "Dried spaghetti for classic pasta dishes and quick weeknight dinners.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Penne Pasta",
+    "description": "Tube-shaped dried pasta that pairs well with chunky sauces and baked dishes.",
+    "category": "Pantry"
+  },
+  {
+    "name": "All-Purpose Flour",
+    "description": "Multipurpose flour for baking, thickening sauces, and making dough.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Granulated Sugar",
+    "description": "White granulated sugar for sweetening drinks and preparing baked goods.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Rolled Oats",
+    "description": "Whole rolled oats for porridge, overnight oats, granola, and baking.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Black Beans",
+    "description": "Canned black beans for soups, salads, tacos, and rice bowls.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Chickpeas",
+    "description": "Canned chickpeas for hummus, salads, curries, and roasted snacks.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Diced Tomatoes",
+    "description": "Canned diced tomatoes for stews, soups, pasta sauces, and casseroles.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Tomato Paste",
+    "description": "Concentrated tomato paste for building flavor in sauces and stews.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Chicken Broth",
+    "description": "Ready-to-use broth for soups, rice, sauces, and braised dishes.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Olive Oil",
+    "description": "Versatile olive oil for dressings, sautéing, roasting, and marinades.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Vegetable Oil",
+    "description": "Neutral cooking oil for frying, baking, and everyday meal preparation.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Peanut Butter",
+    "description": "Creamy peanut spread for toast, sandwiches, smoothies, and baking.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Strawberry Jam",
+    "description": "Sweet fruit spread for toast, pastries, and breakfast dishes.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Honey",
+    "description": "Natural sweetener for tea, yogurt, dressings, and baking.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Soy Sauce",
+    "description": "Savory fermented sauce for marinades, stir-fries, and dipping.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Table Salt",
+    "description": "Fine-grained salt for seasoning and everyday cooking.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Ground Black Pepper",
+    "description": "Ground pepper for adding warm, pungent seasoning to meals.",
+    "category": "Pantry"
+  },
+  {
+    "name": "Corn Flakes Cereal",
+    "description": "Crisp corn cereal commonly served with milk for breakfast.",
+    "category": "Breakfast & Cereal"
+  },
+  {
+    "name": "Granola",
+    "description": "Crunchy oat-based cereal mix for yogurt, milk, or snacking.",
+    "category": "Breakfast & Cereal"
+  },
+  {
+    "name": "Pancake Mix",
+    "description": "Convenient dry mix for preparing pancakes with added wet ingredients as directed.",
+    "category": "Breakfast & Cereal"
+  },
+  {
+    "name": "Maple Syrup",
+    "description": "Sweet syrup for pancakes, waffles, oatmeal, and desserts.",
+    "category": "Breakfast & Cereal"
+  },
+  {
+    "name": "Orange Juice",
+    "description": "Citrus juice for breakfast and refreshing drinks.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Sparkling Water",
+    "description": "Carbonated water for a crisp, unsweetened refreshment.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Bottled Water",
+    "description": "Packaged drinking water for home, work, and travel.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Cola Soft Drink",
+    "description": "Carbonated cola-flavored soft drink served chilled.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Ground Coffee",
+    "description": "Ground roasted coffee beans for brewing at home.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Black Tea Bags",
+    "description": "Black tea in individual bags for a convenient hot beverage.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Apple Juice",
+    "description": "Sweet apple juice for breakfast or a chilled drink.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Lemonade",
+    "description": "Lemon-flavored drink with a sweet-tart citrus taste.",
+    "category": "Beverages"
+  },
+  {
+    "name": "Potato Chips",
+    "description": "Crispy salted potato chips for snacks and casual gatherings.",
+    "category": "Snacks & Confectionery"
+  },
+  {
+    "name": "Pretzels",
+    "description": "Crunchy, salty pretzels for convenient snacking.",
+    "category": "Snacks & Confectionery"
+  },
+  {
+    "name": "Mixed Nuts",
+    "description": "A mix of nuts for snacking, lunchboxes, and adding crunch to dishes.",
+    "category": "Snacks & Confectionery"
+  },
+  {
+    "name": "Dark Chocolate Bar",
+    "description": "Dark chocolate bar for an after-meal treat or baking.",
+    "category": "Snacks & Confectionery"
+  },
+  {
+    "name": "Milk Chocolate Bar",
+    "description": "Sweet milk chocolate for a simple confectionery treat.",
+    "category": "Snacks & Confectionery"
+  },
+  {
+    "name": "Vanilla Ice Cream",
+    "description": "Frozen vanilla dessert for serving on its own or with other sweets.",
+    "category": "Frozen Foods"
+  },
+  {
+    "name": "Frozen Peas",
+    "description": "Frozen green peas for quick side dishes, soups, and stews.",
+    "category": "Frozen Foods"
+  },
+  {
+    "name": "Frozen Pizza",
+    "description": "Ready-to-bake pizza for a convenient meal at home.",
+    "category": "Frozen Foods"
+  },
+  {
+    "name": "Frozen Mixed Vegetables",
+    "description": "A blend of frozen vegetables for stir-fries, soups, and side dishes.",
+    "category": "Frozen Foods"
+  },
+  {
+    "name": "Frozen French Fries",
+    "description": "Frozen potato fries for baking or air-frying according to package directions.",
+    "category": "Frozen Foods"
+  },
+  {
+    "name": "Dishwashing Liquid",
+    "description": "Liquid detergent for hand-washing dishes, cookware, and utensils.",
+    "category": "Household"
+  },
+  {
+    "name": "Laundry Detergent",
+    "description": "Detergent formulated for cleaning everyday laundry.",
+    "category": "Household"
+  },
+  {
+    "name": "Paper Towels",
+    "description": "Absorbent disposable towels for kitchen spills and household cleanup.",
+    "category": "Household"
+  },
+  {
+    "name": "Toilet Paper",
+    "description": "Soft paper rolls for everyday bathroom use.",
+    "category": "Household"
+  },
+  {
+    "name": "Kitchen Trash Bags",
+    "description": "Disposable bags for collecting and containing household kitchen waste.",
+    "category": "Household"
+  },
+  {
+    "name": "All-Purpose Cleaner",
+    "description": "General household cleaning solution for compatible hard surfaces; follow label directions.",
+    "category": "Household"
+  },
+  {
+    "name": "Toothpaste",
+    "description": "Fluoride toothpaste for routine oral hygiene; follow the product label.",
+    "category": "Personal Care"
+  },
+  {
+    "name": "Hand Soap",
+    "description": "Liquid hand soap for everyday handwashing.",
+    "category": "Personal Care"
+  },
+  {
+    "name": "Shampoo",
+    "description": "Hair cleanser for routine washing according to hair-care needs.",
+    "category": "Personal Care"
+  },
+  {
+    "name": "Toothbrush",
+    "description": "Manual toothbrush for daily brushing as part of an oral-care routine.",
+    "category": "Personal Care"
+  },
+  {
+    "name": "Paper Napkins",
+    "description": "Disposable napkins for meals, lunchboxes, and everyday table settings.",
+    "category": "Household"
+  },
+  {
+    "name": "Canned Sweet Corn",
+    "description": "Ready-to-use sweet corn for salads, soups, casseroles, and side dishes.",
+    "category": "Pantry"
+  }
+]

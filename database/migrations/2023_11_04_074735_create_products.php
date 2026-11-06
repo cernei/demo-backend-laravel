@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->text('description');
+            $table->decimal('price', 5)->default(0);
             $table->foreignId('category_id');
             $table->foreignId('admin_id');
             $table->timestamp('created_at')->useCurrent();

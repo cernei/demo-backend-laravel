@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -19,9 +20,9 @@ class DatabaseSeeder extends Seeder
             'permissions' => json_encode(array_keys(Config::get('auth.permissions')))
         ]);
         DB::table('roles')->insert([
-            'name' => 'guest',
+            'name' => 'Warehouse worker',
             'user_id' => 1,
-            'permissions' => json_encode(['products.view', 'categories.view'])
+            'permissions' => json_encode(['stock_items.view', 'stock_items.create', 'stock_items.update', 'stock_items.delete'])
         ]);
 
         DB::table('admins')->insert([
@@ -45,112 +46,75 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Material'],
         ]);
 
-        $categories = [
-            "Technology Trends",
-            "Travel Adventures",
-            "Health and Wellness",
-            "Science Discoveries",
-            "Book Reviews",
-            "Movie Recommendations",
-            "DIY Projects",
-            "Cooking and Recipes",
-            "Fashion Inspiration",
-            "Fitness Tips",
-            "Pet Care",
-            "Gardening Ideas",
-            "Personal Development",
-            "Business Success Stories",
-            "Environmental Conservation",
-            "Parenting Advice",
-            "Home Decor",
-            "Financial Planning",
-            "Art and Creativity",
-            "Music Reviews",
-            "Career Insights",
-            "Mindfulness and Meditation",
-            "Historical Discoveries",
-            "Gaming Strategies",
-            "Product Reviews",
-            "Mental Health Awareness",
-            "Sustainable Living",
-            "Inspirational Stories",
-            "Outdoor Activities",
-            "Photography Tips",
-            "Social Media Trends",
-            "Productivity Hacks",
-            "Cultural Experiences",
-            "Educational Resources",
-            "Celebrity News",
-            "Motivational Quotes",
-            "Car Reviews",
-            "Hiking Trails",
-            "Poetry Corner",
-            "Sports Updates",
-            "Parenting Humor",
-            "Tech Gadgets",
-            "Virtual Reality Experiences",
-            "Home Improvement",
-            "Relationship Advice",
-            "Nature Exploration",
-            "Educational Apps",
-            "Crafty Creations",
-            "Time Management",
-            "Cooking Challenges",
-            "Astronomy Facts",
-            "Inspirational People",
-            "Mind-Blowing Facts",
-            "Movie Spoilers Discussion",
-            "Unique Travel Destinations",
-            "Science Fiction Corner",
-            "Historical Fiction Recommendations",
-            "Travel Hacks",
-            "Community Spotlights",
-            "Wildlife Conservation",
-            "Budget Travel Tips",
-            "Home Office Ideas",
-            "Success Strategies",
-            "Space Exploration",
-            "Gaming Reviews",
-            "Artistic Expressions",
-            "Sustainable Fashion",
-            "Entrepreneurship Tips",
-            "Green Living",
-            "Parenting Stories",
-            "DIY Home Decor",
-            "Personal Finance",
-            "Nutrition Advice",
-            "Mental Wellness Strategies",
-            "Cultural Cuisine",
-            "Musical Journey",
-            "Leadership Insights",
-            "Cybersecurity Tips",
-            "Movie Analysis",
-            "Fitness Challenges",
-            "Pet Adoption Stories",
-            "Nature Photography",
-            "DIY Beauty Products",
-            "History Unveiled",
-            "Travel Photography",
-            "Social Impact Initiatives",
-            "Career Change Stories",
-            "Virtual Events Highlights",
-            "Home Organization",
-            "Motivational Podcasts",
-            "Futuristic Technologies",
-            "Mindful Eating",
-            "Green Energy Solutions",
-            "Parenting Tips for Teens",
-            "Adventure Sports",
-            "DIY Gifts",
-            "Financial Literacy",
-            "Painting Techniques",
-            "Mystery Novels",
-            "Life Lessons from Nature"
-        ];
-        $categoriesBatch = [];
-        foreach ($categories as $value) {
-            $categoriesBatch[] = ['name' => $value];
+        $products = json_decode(
+            file_get_contents(__DIR__ . '/products.json'),
+            true,
+            flags: JSON_THROW_ON_ERROR
+        );
+
+        $categories = collect($products)
+            ->pluck('category')
+            ->unique()
+            ->values();
+
+        foreach ($categories as $category) {
+            DB::table('categories')->insert(['name' => $category]);
         }
-        DB::table('categories')->insert($categoriesBatch);
+
+        $categoryIds = DB::table('categories')
+            ->whereIn('name', $categories)
+            ->pluck('id', 'name');
+
+        $productsBatch = collect($products)
+            ->map(fn (array $product) => [
+                'name' => $product['name'],
+                'description' => $product['description'],
+                'price' => rand(1, 10),
+                'category_id' => $categoryIds[$product['category']],
+                'admin_id' => 1,
+            ])
+            ->all();
+
+        DB::table('products')->insert($productsBatch);
+
+        foreach (['A', 'B', 'C', 'D'] as $letter) {
+            for ($i = 0; $i <= 9; $i++) {
+                DB::table('stock_locations')->insert(['code' => $letter . $i]);
+            }
+        }
+
+        for ($i = 1; $i <= 100; $i++) {
+            DB::table('stock_items')->insert(['product_id' => $i, 'location_id' => rand(1,40), 'quantity' => 100]);
+        }
+
+        $faker = Factory::create();
+
+        for ($i = 1; $i <= 100; $i++) {
+            $orderId = DB::table('orders')->insertGetId([
+                'email' => $faker->email(),
+                'total_amount' => 0
+            ]);
+            $total_amount = 0;
+            $productIds = range(1, 100);
+            shuffle($productIds);
+
+            $productIds = array_slice($productIds, 0, 5);
+            foreach ($productIds as $productId) {
+                $quantity = rand(1, 3);
+                $price = rand(1, 10);
+                DB::table('order_items')->insert([
+                    'order_id'=> $orderId,
+                    'product_id' => $productId,
+                    'quantity' => $quantity,
+                    'price' => $price
+                ]);
+                $total_amount += $quantity * $price;
+            }
+            DB::table('orders')
+                ->where('id', $orderId)
+                ->update([
+                    'total_amount' => $total_amount
+                ]);
+        }
     }
 }

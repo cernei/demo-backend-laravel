@@ -32,24 +32,48 @@ class QueryController extends Controller
                 'paginate' => 10,
                 'table' => 'admins',
                 'where' => ['id'],
-                'select' => ['id', 'name', 'email', 'created_at'],
+                'select' => ['id', 'roles.name as role', 'name', 'email', 'created_at'],
+                'join' => [
+                    'roles' => ['admins.role_id', 'roles.id']
+                ],
             ],
             'products' => [
                 'paginate' => 10, // limit
                 'join' => [
                     'categories' => ['products.category_id', 'categories.id'],
-                    'admins' => ['products.admin_id', 'admins.id']
                 ],
                 'table' => 'products',
                 'where' => [],
                 'whereFullText' => ['description'],
-                'select' => ['id', 'title', 'description', 'categories.name as category', 'admins.name as user', 'created_at'],
+                'select' => ['id', 'name', 'description', 'price', 'categories.name as category',  'created_at'],
+            ],
+            'stock_locations' => [
+                'paginate' => 10, // limit
+                'table' => 'stock_locations',
+                'where' => [],
+                'select' => ['id', 'code'],
+            ],
+            'stock_items' => [
+                'paginate' => 10, // limit
+                'table' => 'stock_items',
+                'join' => [
+                    'products' => ['stock_items.product_id', 'products.id'],
+                    'stock_locations' => ['stock_items.location_id', 'stock_locations.id']
+                ],
+                'where' => ['products.name'],
+                'select' => ['id', 'products.name as product', 'stock_locations.code as location', 'quantity'],
+            ],
+            'orders' => [
+                'paginate' => 10, // limit
+                'table' => 'orders',
+                'where' => ['email'],
+                'select' => ['id', 'email', 'total_amount', 'status '],
             ],
             'categories' => [
                 'paginate' => 10, // limit
                 'table' => 'categories',
                 'where' => ['name'],
-                'select' => ['id', 'name', 'created_at'],
+                'select' => ['id', 'name'],
             ],
             'attributes' => [
                 'paginate' => 10, // limit
@@ -119,10 +143,14 @@ class QueryController extends Controller
             }
 
             if ($schema['paginate']) {
-                $result = $qb->paginate($schema['paginate']);
+                $result = $qb->paginate($schema['paginate'] ?? 10);
             } else {
                 $result = $qb->get();
             }
+        } else {
+            return response()->json([
+                'message' => 'No `' . $params['entity'] . '` schema found',
+            ], 400);
         }
 
         return response()->json(['data' => $result]);

@@ -46,7 +46,9 @@ class AbstractCrudController extends Controller
             if ($serializer) {
                 $input = $serializer($input);
             }
-            DB::table($this->table)->where('id', $id)->update($input);
+            if ($input) {
+                DB::table($this->table)->where('id', $id)->update($input);
+            }
 
             return response()->json(['message' => 'ok']);
         } catch (\Throwable $error) {

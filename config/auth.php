@@ -132,6 +132,21 @@ return [
         'products.edit' => 'Edit products',
         'products.delete' => 'Delete products',
 
+        'stock_locations.view' => 'View stock locations',
+        'stock_locations.create' => 'Create stock locations',
+        'stock_locations.edit' => 'Edit stock locations',
+        'stock_locations.delete' => 'Delete stock locations',
+
+        'stock_items.view' => 'View stock items',
+        'stock_items.create' => 'Create stock items',
+        'stock_items.edit' => 'Edit stock items',
+        'stock_items.delete' => 'Delete stock items',
+
+        'orders.view' => 'View orders',
+        'orders.create' => 'Create orders',
+        'orders.edit' => 'Edit orders',
+        'orders.delete' => 'Delete orders',
+
         'users.view' => 'View users',
         'users.create' => 'Create users',
         'users.edit' => 'Edit users',

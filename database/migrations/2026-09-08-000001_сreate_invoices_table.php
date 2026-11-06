@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('customer_id', 50);
             $table->string('customer_name', 255);
             $table->string('customer_email', 255);
-            $table->decimal('amount', 10, 2);
+            $table->decimal('amount', 10);
             $table->string('currency', 3);
             $table->string('status', 50);
             $table->date('due_date');

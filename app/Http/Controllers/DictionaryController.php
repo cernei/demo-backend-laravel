@@ -18,6 +18,8 @@ class DictionaryController extends Controller
     {
         $schemas = [
             'categories' => ['table' => 'categories', 'keys' => ['id', 'name']],
+            'products' => ['table' => 'products', 'keys' => ['id', 'name']],
+            'locations' => ['table' => 'stock_locations', 'keys' => ['id', 'code']],
             'roles' => ['table' => 'roles', 'keys' => ['id', 'name']],
             'permissions' => ['static' => 'permissions'],
         ];
