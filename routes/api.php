@@ -51,6 +51,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::post('/dictionaries/{dictionaryName}', [DictionaryController::class, 'getDictionary']);
 
     Route::get('/data', [HomeController::class, 'data']);
+    Route::get('/dashboard', [HomeController::class, 'dashboard']);
 
     Route::get('/clear-all', [HomeController::class, 'clearAll']);
 
